@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Common Things — A cat in the box watching TV</title>
+  <meta name="description" content="Common Things — virtual band of five everyday things from five animation worlds. New EP: A cat in the box watching TV." />
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Common Things — A cat in the box watching TV" />
+  <meta property="og:description" content="Six-track EP. Singles: Gato, EYE SEE U, Boxhead, Alien05, TiVi, Dance Guns." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-ep-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'] },
+          colors: {
+            ct: {
+              bg: '#0b0b12',
+              card: '#141420',
+              accent: '#8bd0ff',
+              accent2: '#FFC857',
+              pink: '#FF87B7',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD (Album) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicAlbum",
+    "name": "A cat in the box watching TV",
+    "byArtist": {"@type": "MusicGroup", "name": "Common Things"},
+    "numTracks": 6,
+    "genre": "Pop",
+    "albumRelease": "2026-02-20",
+    "track": [
+      {"@type":"MusicRecording","name":"Gato","datePublished":"2025-11-14"},
+      {"@type":"MusicRecording","name":"EYE SEE U","datePublished":"2025-11-28"},
+      {"@type":"MusicRecording","name":"Boxhead","datePublished":"2025-12-12"},
+      {"@type":"MusicRecording","name":"Alien05","datePublished":"2026-01-09"},
+      {"@type":"MusicRecording","name":"TiVi","datePublished":"2026-01-23"},
+      {"@type":"MusicRecording","name":"Dance Guns","datePublished":"2026-02-06"}
+    ]
+  }
+  </script>
+
+  <style>
+    /* Smooth fade for images */
+    img{filter:saturate(1.02)}
+  </style>
+</head>
+<body class="bg-ct-bg text-white font-sans antialiased selection:bg-ct.accent/30">
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-black/30">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-xl bg-ct.accent/20 border border-white/10 grid place-items-center">
+          <span class="text-lg">CT</span>
+        </div>
+        <span class="font-extrabold tracking-tight">Common Things</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#singles" class="opacity-80 hover:opacity-100">Singles</a>
+        <a href="#about" class="opacity-80 hover:opacity-100">About</a>
+        <a href="#press" class="opacity-80 hover:opacity-100">EPK</a>
+      </nav>
+      <a href="REPLACE_HYPERFOLLOW_URL" class="inline-flex items-center gap-2 bg-white text-black px-4 py-2 rounded-xl font-semibold hover:opacity-90 transition">
+        Pre-save EP
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-ct.card/60 via-transparent to-transparent pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 pt-12 pb-16 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="uppercase tracking-widest text-white/60 text-xs">New EP</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mt-2">A cat in the box watching TV</h1>
+        <p class="text-white/80 mt-4 max-w-prose">Six tracks, six worlds. Gato • EYE SEE U • Boxhead • Alien05 • TiVi • Dance Guns. Singles roll out first, then the full EP.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="REPLACE_HYPERFOLLOW_URL" class="px-5 py-3 rounded-xl bg-ct.accent text-black font-semibold">Pre-save on Spotify</a>
+          <a href="#singles" class="px-5 py-3 rounded-xl border border-white/20 hover:bg-white/5">Explore singles</a>
+        </div>
+        <div class="mt-6 flex items-center gap-4 text-white/70 text-sm">
+          <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-ct.accent animate-pulse"></span> Waterfall rollout</span>
+          <span>Pop • meme/anime/cartoon vibes</span>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-square w-full rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+          <img src="/img/A cat in the box watching TV.png" alt="EP cover — A cat in the box watching TV" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SINGLES GRID -->
+  <section id="singles" class="py-14">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-end justify-between mb-6">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Singles</h2>
+      </div>
+      <div id="singlesGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-4">About</h2>
+      <p class="text-white/80 leading-relaxed">Common Things is a virtual band where five everyday things come from five different animation worlds — memes, anime, stop‑motion, comics, and cartoons. They don’t tell their backstories in the songs, but each track carries a slice of their personality.</p>
+    </div>
+  </section>
+
+  <!-- PRESS / EPK -->
+  <section id="press" class="py-16">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-4">Press Kit</h2>
+        <ul class="space-y-3 text-white/85">
+          <li>• Bio (ES/EN) short + medium</li>
+          <li>• 6 images (renders/teasers)</li>
+          <li>• Tech sheet (BPM, key, ISRC, credits)</li>
+          <li>• Private links: WAV/MP3 + Visualizer</li>
+        </ul>
+        <a href="/assets/EPK_OneSheet.pdf" class="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-black font-semibold">Download one‑sheet (PDF)</a>
+      </div>
+      <div class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-ct.card">
+        <img src="/img/Banda-gorros.png" alt="Common Things — teaser still" class="w-full h-64 object-cover" />
+        <div class="p-5 text-sm text-white/70">Common things —— (Where is GaTo?)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-6 items-center">
+      <p class="text-white/60 text-sm">© <span id="year"></span> Common Things. All rights reserved.</p>
+      <div class="flex gap-3 md:justify-end">
+        <a href="REPLACE_SPOTIFY_ARTIST_URL" class="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/15">Spotify</a>
+        <a href="REPLACE_APPLEMUSIC_ARTIST_URL" class="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/15">Apple</a>
+        <a href="REPLACE_YOUTUBE_CHANNEL_URL" class="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/15">YouTube</a>
+        <a href="REPLACE_TIKTOK_URL" class="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/15">TikTok</a>
+        <a href="REPLACE_INSTAGRAM_URL" class="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/15">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DATA & RENDER (Singles) -->
+  <script>
+    const singles = [
+      {
+        key: 'gato',
+        title: 'GaTo',
+        date: '2025-10-21',
+        role: 'Lead Single',
+        cover: '/img/Gato.jpg',
+        spotifyId: '1D2NIYS2OO4jKhipejgiMw',
+        youtube: 'REPLACE_YOUTUBE_URL_GATO'
+      },
+      {
+        key: 'eye-see-u',
+        title: 'EYE SEE U',
+        date: '2025-11-28',
+        role: 'Single',
+        cover: '/img/EYESEEU.jpg',
+        spotifyId: 'REPLACE_SPOTIFY_TRACK_ID_EYE',
+        youtube: 'REPLACE_YOUTUBE_URL_EYE'
+      },
+      {
+        key: 'boxhead',
+        title: 'Boxhead',
+        date: '2025-12-12',
+        role: 'Single',
+        cover: '/assets/singles/boxhead.jpg',
+        spotifyId: 'REPLACE_SPOTIFY_TRACK_ID_BOX',
+        youtube: 'REPLACE_YOUTUBE_URL_BOX'
+      },
+      {
+        key: 'alien05',
+        title: 'Alien05',
+        date: '2026-01-09',
+        role: 'Single',
+        cover: '/img/Alien05.jpg',
+        spotifyId: 'REPLACE_SPOTIFY_TRACK_ID_ALIEN',
+        youtube: 'REPLACE_YOUTUBE_URL_ALIEN'
+      },
+      {
+        key: 'tivi',
+        title: 'TiVi',
+        date: '2026-01-23',
+        role: 'Single',
+        cover: '/assets/singles/tivi.jpg',
+        spotifyId: 'REPLACE_SPOTIFY_TRACK_ID_TIVI',
+        youtube: 'REPLACE_YOUTUBE_URL_TIVI'
+      },
+      {
+        key: 'dance-guns',
+        title: 'Dance Guns',
+        date: '2026-02-06',
+        role: 'Single',
+        cover: '/img/HappyFace.jpg',
+        spotifyId: 'REPLACE_SPOTIFY_TRACK_ID_DANCE',
+        youtube: 'REPLACE_YOUTUBE_URL_DANCE'
+      }
+    ];
+
+    const today = new Date();
+    const fmtDate = (iso) => new Date(iso + 'T00:00:00');
+
+    const grid = document.getElementById('singlesGrid');
+    grid.innerHTML = singles.map(s => {
+      const outNow = today >= fmtDate(s.date);
+      const badge = outNow ? `<span class=\"px-2 py-1 text-xs rounded bg-ct.accent2 text-black font-semibold\">OUT NOW</span>` : `<span class=\"px-2 py-1 text-xs rounded bg-white/10\">${new Date(s.date).toLocaleDateString(undefined,{month:'short', day:'2-digit'})}</span>`;
+      const player = outNow && s.spotifyId && s.spotifyId !== 'REPLACE_SPOTIFY_TRACK_ID_'+s.key?.toUpperCase?.() ? `
+        <iframe style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/track/${s.spotifyId}?utm_source=generator\" width=\"100%\" height=\"152\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\"></iframe>
+      ` : `
+        <div class=\"p-4 rounded-lg border border-white/10 text-white/60 text-sm\">Player unlocks on ${new Date(s.date).toLocaleDateString(undefined,{month:'long', day:'numeric', year:'numeric'})}.</div>
+      `;
+      return `
+        <article class=\"rounded-2xl overflow-hidden bg-ct.card ring-1 ring-white/10 hover:ring-white/20 transition\">
+          <div class=\"aspect-square w-full overflow-hidden\">
+            <img src=\"${s.cover}\" alt=\"${s.title} single cover\" class=\"w-full h-full object-cover\" />
+          </div>
+          <div class=\"p-4 space-y-3\">
+            <div class=\"flex items-center justify-between\">
+              <h3 class=\"text-lg font-bold\">${s.title}</h3>
+              ${badge}
+            </div>
+            ${player}
+            <div class=\"flex gap-2\">
+              <a href=\"${outNow ? `https://open.spotify.com/track/${s.spotifyId}` : `https://distrokid.com/hyperfollow/commonthings2/${s.key}`}\" class=\"px-4 py-2 rounded-xl bg-white text-black font-semibold\">${outNow ? 'Listen' : 'Pre-save'}</a>
+              <a href=\"${s.youtube || '#'}\" class=\"px-4 py-2 rounded-xl border border-white/20 hover:bg-white/5\">Visualizer</a>
+            </div>
+          </div>
+        </article>
+      `
+    }).join('');
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
