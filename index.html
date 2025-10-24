@@ -102,7 +102,7 @@
       </div>
       <div class="relative">
         <div class="aspect-square w-full rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10">
-          <img src="/img/A cat in the box watching TV.png" alt="EP cover — A cat in the box watching TV" class="w-full h-full object-cover" />
+          <img src="/assets/ep-cover.jpg" alt="EP cover — A cat in the box watching TV" class="w-full h-full object-cover" />
         </div>
       </div>
     </div>
@@ -113,6 +113,7 @@
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex items-end justify-between mb-6">
         <h2 class="text-2xl md:text-3xl font-extrabold">Singles</h2>
+        <p class="text-white/60 text-sm">Dates are set — players unlock automatically on release.</p>
       </div>
       <div id="singlesGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
@@ -140,8 +141,8 @@
         <a href="/assets/EPK_OneSheet.pdf" class="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-black font-semibold">Download one‑sheet (PDF)</a>
       </div>
       <div class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-ct.card">
-        <img src="/img/Banda-gorros.png" alt="Common Things — teaser still" class="w-full h-64 object-cover" />
-        <div class="p-5 text-sm text-white/70">Common things —— (Where is GaTo?)</div>
+        <img src="/assets/press-photo.jpg" alt="Common Things — teaser still" class="w-full h-64 object-cover" />
+        <div class="p-5 text-sm text-white/70">Teaser still — replace with your visualizer frame.</div>
       </div>
     </div>
   </section>
@@ -165,11 +166,11 @@
     const singles = [
       {
         key: 'gato',
-        title: 'GaTo',
-        date: '2025-10-21',
+        title: 'Gato',
+        date: '2025-11-14',
         role: 'Lead Single',
-        cover: '/img/Gato.jpg',
-        spotifyId: '1D2NIYS2OO4jKhipejgiMw',
+        cover: '/assets/singles/gato.jpg',
+        spotifyId: 'REPLACE_SPOTIFY_TRACK_ID_GATO',
         youtube: 'REPLACE_YOUTUBE_URL_GATO'
       },
       {
@@ -177,7 +178,7 @@
         title: 'EYE SEE U',
         date: '2025-11-28',
         role: 'Single',
-        cover: '/img/EYESEEU.jpg',
+        cover: '/assets/singles/eyeseeu.jpg',
         spotifyId: 'REPLACE_SPOTIFY_TRACK_ID_EYE',
         youtube: 'REPLACE_YOUTUBE_URL_EYE'
       },
@@ -195,7 +196,7 @@
         title: 'Alien05',
         date: '2026-01-09',
         role: 'Single',
-        cover: '/img/Alien05.jpg',
+        cover: '/assets/singles/alien05.jpg',
         spotifyId: 'REPLACE_SPOTIFY_TRACK_ID_ALIEN',
         youtube: 'REPLACE_YOUTUBE_URL_ALIEN'
       },
@@ -213,7 +214,7 @@
         title: 'Dance Guns',
         date: '2026-02-06',
         role: 'Single',
-        cover: '/img/HappyFace.jpg',
+        cover: '/assets/singles/danceguns.jpg',
         spotifyId: 'REPLACE_SPOTIFY_TRACK_ID_DANCE',
         youtube: 'REPLACE_YOUTUBE_URL_DANCE'
       }
@@ -243,7 +244,7 @@
             </div>
             ${player}
             <div class=\"flex gap-2\">
-              <a href=\"${outNow ? `https://open.spotify.com/track/${s.spotifyId}` : `https://distrokid.com/hyperfollow/commonthings2/${s.key}`}\" class=\"px-4 py-2 rounded-xl bg-white text-black font-semibold\">${outNow ? 'Listen' : 'Pre-save'}</a>
+              <a href=\"${outNow ? `https://open.spotify.com/track/${s.spotifyId}` : 'REPLACE_HYPERFOLLOW_URL'}\" class=\"px-4 py-2 rounded-xl bg-white text-black font-semibold\">${outNow ? 'Listen' : 'Pre-save'}</a>
               <a href=\"${s.youtube || '#'}\" class=\"px-4 py-2 rounded-xl border border-white/20 hover:bg-white/5\">Visualizer</a>
             </div>
           </div>
