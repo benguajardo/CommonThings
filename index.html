@@ -61,8 +61,14 @@
     /* Smooth fade for images */
     img{filter:saturate(1.02)}
   </style>
+
+    <style>
+    html, body { overflow-x: hidden; }
+    * { box-sizing: border-box; }
+    img, iframe, video { max-width: 100%; }
+  </style>
 </head>
-<body class="bg-ct-bg text-white font-sans antialiased selection:bg-ct.accent/30">
+<body class="overflow-x-hidden bg-ct-bg text-white font-sans antialiased selection:bg-ct.accent/30">
   <!-- NAV -->
   <header class="sticky top-0 z-50 backdrop-blur bg-black/30">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
