@@ -398,7 +398,7 @@
         role: 'Lead Single',
         cover: 'img/Gato.jpg',
         spotifyId: '1D2NIYS2OO4jKhipejgiMw',
-        youtube: 'https://youtu.be/Bc_53U1znRU?si=qlc30k8oZDeclxmk',
+        youtube: 'https://www.youtube.com/shorts/5xGQtHz4Y34',
         locked: false
       },
       {
@@ -469,45 +469,105 @@
 
       const player = (!locked && outNow && s.spotifyId && s.spotifyId !== 'REPLACE_SPOTIFY_TRACK_ID_' + s.key?.toUpperCase?.())
         ? `
-          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${s.spotifyId}?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-        `
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${s.spotifyId}?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    `
         : (!locked
           ? `
-              <div class="p-4 rounded-lg border border-white/10 text-white/60 text-sm">
-                Player unlocks on ${new Date(s.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}.
-              </div>
-            `
+          <div class="p-4 rounded-lg border border-white/10 text-white/60 text-sm">
+            Player unlocks on ${new Date(s.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}.
+          </div>
+        `
           : ``);
 
       return `
-        <article class="relative rounded-2xl overflow-hidden bg-ct.card ring-1 ring-white/10 ${locked ? 'opacity-60 grayscale cursor-not-allowed' : 'hover:ring-white/20 transition'}">
-          <div class="aspect-square w-full overflow-hidden">
-            <img src="${s.cover}" alt="${s.title} single cover" class="w-full h-full object-cover" />
-          </div>
-          <div class="p-4 space-y-3 ${locked ? 'pointer-events-none' : ''}">
-            <div class="flex items-center justify-between">
-              <h3 class="text-lg font-bold">${s.title}</h3>
-              ${badge}
-            </div>
-            ${player}
-            <div class="flex gap-2">
-              <a href="${outNow ? `https://open.spotify.com/track/${s.spotifyId}` : `https://distrokid.com/hyperfollow/commonthings2/${s.key}`}" class="px-4 py-2 rounded-xl bg-white text-black font-semibold">${outNow ? 'Listen' : 'Pre-save'}</a>
-              <a href="${s.youtube || '#'}" class="px-4 py-2 rounded-xl border border-white/20 hover:bg-white/5">Visualizer</a>
-            </div>
-          </div>
+    <article class="relative rounded-2xl overflow-hidden bg-ct.card ring-1 ring-white/10 ${locked ? 'opacity-60 grayscale cursor-not-allowed' : 'hover:ring-white/20 transition'}">
+      
+      <!-- CONTENEDOR DE MEDIA (imagen o video) -->
+      <div id="media-${s.key}" data-state="image" data-cover="${s.cover}" class="aspect-square w-full overflow-hidden">
+        <img src="${s.cover}" alt="${s.title} single cover" class="w-full h-full object-cover" />
+      </div>
 
-          ${locked ? `
-          <!-- Overlay de bloqueo -->
-          <div class="absolute inset-0 rounded-2xl bg-black/40 backdrop-blur-sm ring-1 ring-inset ring-white/10 grid place-items-center">
-            <div class="flex items-center gap-2 text-white/80 text-sm">
-              <span class="inline-block text-base animate-pulse">🔒</span>
-              <span class="tracking-wide">Coming soon</span>
-            </div>
-          </div>` : ''}
-        </article>
-      `;
+      <div class="p-4 space-y-3 ${locked ? 'pointer-events-none' : ''}">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-bold">${s.title}</h3>
+          ${badge}
+        </div>
+        ${player}
+        <div class="flex gap-2">
+          <a href="${outNow ? `https://open.spotify.com/track/${s.spotifyId}` : `https://distrokid.com/hyperfollow/commonthings2/${s.key}`}" class="px-4 py-2 rounded-xl bg-white text-black font-semibold">${outNow ? 'Listen' : 'Pre-save'}</a>
+          <a href="${s.youtube || '#'}"
+             class="px-4 py-2 rounded-xl border border-white/20 hover:bg-white/5 js-visualizer ${s.youtube ? '' : 'opacity-50 cursor-not-allowed pointer-events-none'}"
+             data-key="${s.key}"
+             data-youtube="${s.youtube || ''}">
+            Visualizer
+          </a>
+        </div>
+      </div>
+
+      ${locked ? `
+      <!-- Overlay de bloqueo -->
+      <div class="absolute inset-0 rounded-2xl bg-black/40 backdrop-blur-sm ring-1 ring-inset ring-white/10 grid place-items-center">
+        <div class="flex items-center gap-2 text-white/80 text-sm">
+          <span class="inline-block text-base animate-pulse">🔒</span>
+          <span class="tracking-wide">Coming soon</span>
+        </div>
+      </div>` : ''}
+    </article>
+  `;
     }).join('');
 
+    function getYouTubeId(url) {
+      try {
+        const u = new URL(url);
+        if (u.hostname.includes('youtu.be')) return u.pathname.slice(1);
+        if (u.pathname.includes('/shorts/')) return u.pathname.split('/shorts/')[1].split('/')[0];
+        if (u.pathname.includes('/embed/')) return u.pathname.split('/embed/')[1].split('/')[0];
+        const v = u.searchParams.get('v');
+        return v || null;
+      } catch {
+        return null;
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.js-visualizer');
+      if (!btn) return;
+
+      e.preventDefault();
+      const key = btn.dataset.key;
+      const url = btn.dataset.youtube;
+      if (!url) return;
+
+      const media = document.getElementById(`media-${key}`);
+      if (!media) return;
+
+      const state = media.dataset.state || 'image';
+
+      if (state === 'image') {
+        const id = getYouTubeId(url);
+        if (!id) return;
+
+media.innerHTML = `
+  <div class="relative w-full" style="padding-top:100%">
+    <iframe
+      class="absolute inset-0 w-full h-full rounded-xl"
+      src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0"
+      title="YouTube video player"
+      frameborder="0"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+`;
+        media.dataset.state = 'video';
+        btn.textContent = 'Cover';
+      } else {
+        const cover = media.dataset.cover;
+        media.innerHTML = `<img src="${cover}" alt="${key} cover" class="w-full h-full object-cover" />`;
+        media.dataset.state = 'image';
+        btn.textContent = 'Visualizer';
+      }
+    });
     document.getElementById('year').textContent = new Date().getFullYear();
 
   </script>
